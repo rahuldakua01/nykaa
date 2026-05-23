@@ -2,9 +2,9 @@ from pathlib import Path
 
 from fastapi import FastAPI,Request
 from fastapi.responses import HTMLResponse
-from api.routers import api_router
-from db.base import Base
-from db.session import engine
+from backend.api.routers import api_router
+from backend.db.base import Base
+from backend.db.session import engine
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
