@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nykaa</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/static/styles.css?v=6">
+</head>
+<body>
+
+  <!-- TOAST NOTIFICATIONS -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="top-banner-strip">
+      <span>FREE SHIPPING ON ORDERS ABOVE ₹499 • 100% AUTHENTIC PRODUCTS</span>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <div class="container navbar-main">
+      <div class="hamburger-menu" id="hamburger-btn">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+
+      <!-- Nykaa Styled Logo -->
+      <div class="logo-container">
+        <a href="#" onclick="app.navigateTo('home'); return false;">
+          <svg viewBox="0 0 512 250" style="height: 32px; width: auto;">
+            <path d="M157.9 57.2c5-9.6-11.2-6.9-11.2-6.9-5.8 0-8.4 7-9.6 9l-17.5 34.5c-3.3 5.7-14.2 30.1-17.8 35.5-.3-5.5.1-16.5.2-19.1.7-10.4 1.4-18.3 2.5-27.8.8-7.4 2.4-15.7.9-23.1-1-4.6-2.5-4.9-9.1-5.6-6.9-.7-11.6 9.3-13.9 14-8.4 17.4-17.8 34.4-25.3 52.2-2.2 5.2-4.9 10.4-7.2 15.5-2.7 6.2-5.2 12.3-8.1 18.4-3.1 6.4-12.8 27.4-15.5 34-3 7.2-3.6 13 8.4 12.7 1.9 0 6.1.4 11.3-5.2 4.1-4.4 4.9-8.5 7.3-14.6 8.6-21.6 14.7-35.9 24.1-57.3.9-2.1 3-8.2 5.1-12.9-.1 6.7-1.2 14.7-1.7 20-1.6 19.4-2.7 38.1-4.4 57.3-.2 2.6-.9 5.7.3 8.1 1.2 2.4 4.2 3 6.6 3.3 9.6 1.2 10.6-3.6 13.6-10.2 2.7-5.9 4.3-10.7 6.7-16.7 7.4-18.5 15.2-36.8 23.8-54.8 2.2-4.6 4.4-9.1 6.8-13.6 4.4-8.3 8-16.1 12.8-25.3 3.6-6.6 7.1-14.1 10.9-21.4zm329.5 52.1c-1.1-11.1-16.3-5.5-25.4-3.8-3.4.6-13.9 2.6-26 4.9-.5-12.5-.3-10-.4-17.6-.3-11-.9-19.6-1.5-29.3-.4-6.1-1.3-14.6-12.3-13-12.8 1.8-14.9 8.2-18.3 15.9-8.9 20.1-8.6 20.2-18.7 42.6-.8 1.7-4.5 10.7-5.1 12.5-.4.1-1.2.3-2.2.6-4.1.9-9.1 2-14.6 3.2l.1-.5c1.3-10.2 2.9-20.4 4.3-30.6 1.3-9.3 2.7-24.5 3.8-33.8 1.2-10-10.4-9.8-10.4-9.8-7.1-.4-9.8 1.7-14.3 7.5-7.7 10-17 20.8-25.2 31.8-14.9 19.9-25.8 34.9-39.3 54.9-3.9 5.8-9.9 14.6-15.1 21.5-3.5-6.9-6.5-14.5-9.4-21.5-4.2-10-7.3-16.2-9.3-22.8-1.8-5.8.4-6.6 4.7-9.9 12.4-9.4 26.4-15.9 39.1-24.9 9-6.4 19.8-13.5 28.6-20.1 0 0 5.1-3 7.9-6.8 3.5-4.8-6.4-9.8-6.4-9.8-5.6-.9-8.7.4-12.6 2.2-4 1.8-9.2 5.9-12.6 8.6-7.5 5.8-17 12.7-24.4 18.5-9.1 7.1-15.3 11.5-25.3 17.4l25.4-38c8.3-10.7-13.7-13.7-22.1-2.4-7.8 10.1-13.1 19-19.2 28.2-14.7 21.9-26.8 44.9-38.9 69-4.6 9.2-9.1 18.8-13.3 28.3-2 4.6-7.9 15.2.2 16.3 17.3 2.2 20.1-6 24-15.9 6.4-16.3 8.5-19.3 12.6-29.4 4-9.8 6.9-15.4 11.4-23.8.1-.1 1.4-2.2 1.4-2.2.8 1.7 6.1 19.3 6.8 21.3 3.6 9.5 9.9 31.7 13.5 41.8 2.6 8.4 3.3 10.8 14.6 10.5 5.6-.1 8-2.3 11.7-9.3s19.7-36.8 19.7-36.8c4.8-.8 11.7-2 16.2-2.8.8-.1 2.6-.5 5.1-1 1.7-.2 3.1-.5 4.2-.8.1 0 .1 0 .2-.1 4.4-.9 10-2 16.1-3.2-1.1 5.5-4.5 17.6-5.2 20.7 0 0-7.4 28.8 2.2 30.3 6 .9 9.1-.1 9.1-.1 11.2-1.3 11.4-16.4 11.4-16.4l6.1-39.1c4.4-.9 8.8-1.8 13.1-2.6l-13.2 44.6c-1.9 6.3-3.3 14.4 8 14.4 9.2.5 9.8-5.3 9.8-5.3.2-.9 7.5-24.4 9.3-32.8 1.2-5.4 5.5-19.3 7.2-24.9 4.8-.9 8.4-1.6 10.1-1.9 2-.3 5.9-1 11-1.8-.1 5.2 0 12.4.1 13.4 1.1 15.8-.1 32.2 3.2 47.7.5 2.5 1.5 5.7 4.7 5.7 3.8 0 5-.4 9-.7 11.6-1 9.5-12.7 8.8-20.1-.8-8.2-1.6-15.1-2.7-23.3-.9-6.7-1.5-15.5-1.6-26.1v-.2c19-3.2 39.5-6.7 42.5-7.2 4.8-1.3 8.8-.9 7.8-11.9zm-148.5 21c0 .1-.1.1-.1.2-13.3 2.9-25.8 5.7-32.8 7.3 7-11.7 37.8-54.3 42.5-59.3-2.6 13.2-6.8 37.7-9.6 51.8zm76.8-16.8v.7c-6.4 1.2-12.4 2.4-17.2 3.3 6.1-15.8 12.5-35.2 16.3-45-.3 7.3 1.2 33.8.9 41zM229.2 66.4c2-3.7 6.5-11 .9-13.8-3.3-1.6-7.7-2.6-11.1-.9-2.8 1.5-4.9 4.4-6.3 7.1l-21.4 33.7c-3.5 4.8-6.8 10.8-13.9 11.6-4.7.5-8.1-1.5-8-5.7.1-4.3 2.6-10 4.5-13.7 5.6-10.6 6.3-14.2 11.7-24.7 5.2-10.1-11.8-12.4-16-5.1-3 5.2-8.8 15-10.1 18.3-2.4 6-20.4 34.6-12.6 45.9 10 12.8 36.6-7.4 23 15.9-11 18.7-17.9 29.4-27.5 46.7-2.1 3.7-4.7 7.4-5.4 11.8-1 6.2 7.5 6.1 11.2 5.9 6.5-.5 9.6-3.5 12.2-9.4 1.4-3.1 3.3-6.9 4.7-10 12.6-27.5 26-51.4 42.6-78 7.9-12.6 14.9-23.4 21.5-35.6z" fill="#fc2779"></path>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="search-container">
+        <div class="search-box-wrapper">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="search-input" placeholder="Search for products, brands and categories..." autocomplete="off">
+        </div>
+        <!-- Search Suggestions Drawer -->
+        <div id="search-suggestions" class="search-suggestions"></div>
+      </div>
+
+      <!-- Action Panel Buttons -->
+      <div class="nav-actions">
+        <!-- Wishlist -->
+        <a href="#" class="nav-btn" onclick="app.navigateTo('wishlist'); return false;">
+          <i class="fa-regular fa-heart"></i>
+          <span>Wishlist</span>
+          <span class="badge-count" id="wishlist-badge" style="display: none;">0</span>
+        </a>
+
+        <!-- Cart Bag -->
+        <button class="nav-btn" id="cart-drawer-btn">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span>Bag</span>
+          <span class="badge-count" id="cart-badge" style="display: none;">0</span>
+        </button>
+
+        <!-- User Authentication State -->
+        <div class="user-menu-wrapper" id="user-menu-wrapper">
+          <button class="signin-btn" id="login-modal-btn">Login</button>
+          <!-- User Dropdown (Shown when logged in) -->
+          <div class="user-dropdown" id="user-dropdown">
+            <div class="user-dropdown-item" onclick="app.navigateTo('wishlist')">
+              <i class="fa-regular fa-heart"></i> My Wishlist
+            </div>
+            <div class="user-dropdown-item" onclick="app.showOrders()">
+              <i class="fa-solid fa-box-archive"></i> My Orders
+            </div>
+            <div class="user-dropdown-item" onclick="app.logout()" style="border-top: 1px solid var(--border-color); color: var(--nykaa-pink);">
+              <i class="fa-solid fa-power-off"></i> Log Out
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CATEGORY MEGA-DROPDOWNS SUB-NAVBAR -->
+    <nav class="navbar-categories">
+      <ul class="category-links">
+        <li class="category-item">
+          <span class="category-link" onclick="app.navigateTo('shop', { category: 'all' })">All Products</span>
+        </li>
+        <li class="category-item">
+          <span class="category-link" onclick="app.navigateTo('shop', { category: 'makeup' })">Makeup</span>
+          <div class="mega-dropdown">
+            <div class="mega-column">
+              <h4>Lips</h4>
+              <ul>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'makeup', subcategory: 'lips' }); return false;">Lipsticks</a></li>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'makeup', subcategory: 'lips' }); return false;">Liquid Lips</a></li>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'makeup', subcategory: 'lips' }); return false;">Lip Crayon</a></li>
+              </ul>
+            </div>
+            <div class="mega-column">
+              <h4>Face</h4>
+              <ul>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'makeup', subcategory: 'face' }); return false;">Foundations</a></li>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'makeup', subcategory: 'face' }); return false;">Compact Powders</a></li>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'makeup', subcategory: 'face' }); return false;">Blushers</a></li>
+              </ul>
+            </div>
+            <div class="mega-column">
+              <h4>Eyes</h4>
+              <ul>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'makeup', subcategory: 'eyes' }); return false;">Kajals</a></li>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'makeup', subcategory: 'eyes' }); return false;">Mascaras</a></li>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'makeup', subcategory: 'eyes' }); return false;">Eyeshadows</a></li>
+              </ul>
+            </div>
+            <div class="mega-image-col" style="background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300');">
+              <h5>Bold Colors</h5>
+              <p>Explore luxury cosmetics</p>
+            </div>
+          </div>
+        </li>
+        <li class="category-item">
+          <span class="category-link" onclick="app.navigateTo('shop', { category: 'skin' })">Skin</span>
+          <div class="mega-dropdown">
+            <div class="mega-column">
+              <h4>Moisturizers</h4>
+              <ul>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'skin', subcategory: 'moisturizer' }); return false;">Creams & Gels</a></li>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'skin', subcategory: 'moisturizer' }); return false;">Face Oils</a></li>
+              </ul>
+            </div>
+            <div class="mega-column">
+              <h4>Serums & Cleansers</h4>
+              <ul>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'skin', subcategory: 'serum' }); return false;">Acne Serums</a></li>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'skin', subcategory: 'serum' }); return false;">Hydration Serums</a></li>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'skin', subcategory: 'cleanser' }); return false;">Facial Wash</a></li>
+              </ul>
+            </div>
+            <div class="mega-column">
+              <h4>Sun Care</h4>
+              <ul>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'skin', subcategory: 'sunscreen' }); return false;">Sunblock SPF 50</a></li>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'skin', subcategory: 'sunscreen' }); return false;">Matte Sunscreen</a></li>
+              </ul>
+            </div>
+            <div class="mega-image-col" style="background-image: url('https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=300');">
+              <h5>Clean Care Routine</h5>
+              <p>Dermatologically verified serums</p>
+            </div>
+          </div>
+        </li>
+        <li class="category-item">
+          <span class="category-link" onclick="app.navigateTo('shop', { category: 'hair' })">Hair</span>
+          <div class="mega-dropdown">
+            <div class="mega-column">
+              <h4>Wash</h4>
+              <ul>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'hair', subcategory: 'shampoo' }); return false;">Shampoos</a></li>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'hair', subcategory: 'shampoo' }); return false;">Conditioners</a></li>
+              </ul>
+            </div>
+            <div class="mega-column">
+              <h4>Treatments</h4>
+              <ul>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'hair', subcategory: 'hair-treatment' }); return false;">Hair Masks</a></li>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'hair', subcategory: 'hair-treatment' }); return false;">Oils & Serums</a></li>
+              </ul>
+            </div>
+            <div class="mega-image-col" style="background-image: url('https://images.unsplash.com/photo-1526947425960-945c6e72858f?w=300');">
+              <h5>Lustrous Locks</h5>
+              <p>Strengthen your roots</p>
+            </div>
+          </div>
+        </li>
+        <li class="category-item">
+          <span class="category-link" onclick="app.navigateTo('shop', { category: 'fragrance' })">Fragrance</span>
+          <div class="mega-dropdown">
+            <div class="mega-column">
+              <h4>Luxury Perfumes</h4>
+              <ul>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'fragrance', subcategory: 'perfume' }); return false;">Eau De Parfum</a></li>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'fragrance', subcategory: 'perfume' }); return false;">Eau De Toilette</a></li>
+              </ul>
+            </div>
+            <div class="mega-column">
+              <h4>Daily Freshness</h4>
+              <ul>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'fragrance', subcategory: 'body-mist' }); return false;">Body Mists</a></li>
+                <li><a href="#" onclick="app.navigateTo('shop', { category: 'fragrance', subcategory: 'body-mist' }); return false;">Deodorants</a></li>
+              </ul>
+            </div>
+            <div class="mega-image-col" style="background-image: url('https://images.unsplash.com/photo-1541643600914-78b084683601?w=300');">
+              <h5>Elegant Scents</h5>
+              <p>Premium perfumes for him & her</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN DYNAMIC CONTENT SLOTS -->
+  <main>
+    
+    <!-- 1. HOME VIEW -->
+    <section id="home-view" class="view-section active">
+      <!-- Carousel Slider Banner -->
+      <div class="hero-carousel" id="hero-carousel">
+        <div class="carousel-track" id="carousel-track">
+          <!-- Banners will be rendered dynamically -->
+        </div>
+        <button class="carousel-arrow prev" id="carousel-prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-arrow next" id="carousel-next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="carousel-dots" id="carousel-dots"></div>
+      </div>
+
+      <div class="container">
+        <!-- Categories Circles Bubble Navigation -->
+        <div class="category-bubbles" id="category-bubbles">
+          <div class="bubble-item" onclick="app.navigateTo('shop', { category: 'makeup' })">
+            <div class="bubble-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=150" alt="Makeup">
+            </div>
+            <span>Makeup</span>
+          </div>
+          <div class="bubble-item" onclick="app.navigateTo('shop', { category: 'skin' })">
+            <div class="bubble-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=150" alt="Skin Care">
+            </div>
+            <span>Skin Care</span>
+          </div>
+          <div class="bubble-item" onclick="app.navigateTo('shop', { category: 'hair' })">
+            <div class="bubble-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=150" alt="Hair Care">
+            </div>
+            <span>Hair Care</span>
+          </div>
+          <div class="bubble-item" onclick="app.navigateTo('shop', { category: 'fragrance' })">
+            <div class="bubble-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=150" alt="Fragrances">
+            </div>
+            <span>Fragrance</span>
+          </div>
+          <div class="bubble-item" onclick="app.navigateTo('shop', { brand: 'MAC' })">
+            <div class="bubble-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=150" alt="Luxe">
+            </div>
+            <span>MAC Luxe</span>
+          </div>
+          <div class="bubble-item" onclick="app.navigateTo('shop', { category: 'all' })">
+            <div class="bubble-img-wrapper" style="background-color: var(--nykaa-pink-light); color: var(--nykaa-pink); font-size: 24px;">
+              <i class="fa-solid fa-tags"></i>
+            </div>
+            <span>Hot Deals</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Product Sliders (Trending Products) -->
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h3>Trending Now</h3>
+            <p>The most favorited items in our store right now</p>
+          </div>
+          <a href="#" class="view-all-link" onclick="app.navigateTo('shop'); return false;">View All <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="product-slider-container">
+          <button class="slider-nav prev-nav" onclick="app.scrollProductSlider('trending-slider', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+          <div class="product-slider" id="trending-slider">
+            <!-- Rendered via JS -->
+          </div>
+          <button class="slider-nav next-nav" onclick="app.scrollProductSlider('trending-slider', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+
+        <!-- Promotional Mid Banners Grid -->
+        <div class="promos-grid" id="promos-grid">
+          <!-- Banners will be rendered here -->
+        </div>
+
+        <!-- Luxe Spotlight Section -->
+        <div class="luxe-spotlight">
+          <div class="container">
+            <div class="luxe-header">
+              <p>Discover Pure Indulgence</p>
+              <h3>The Luxe Spotlight</h3>
+            </div>
+            <div class="luxe-grid" id="luxe-grid">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Best Sellers Product Slider -->
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h3>Best Sellers</h3>
+            <p>Tried, tested, and loved cosmetics & skin formulations</p>
+          </div>
+          <a href="#" class="view-all-link" onclick="app.navigateTo('shop'); return false;">View All <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="product-slider-container">
+          <button class="slider-nav prev-nav" onclick="app.scrollProductSlider('bestseller-slider', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+          <div class="product-slider" id="bestseller-slider">
+            <!-- Rendered via JS -->
+          </div>
+          <button class="slider-nav next-nav" onclick="app.scrollProductSlider('bestseller-slider', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. PRODUCT LISTING (PLP) VIEW -->
+    <section id="shop-view" class="view-section">
+      <div class="container plp-container">
+        
+        <!-- Sidebar Filters -->
+        <aside class="filter-sidebar">
+          <div class="filter-header">
+            <h4>Filters</h4>
+            <button class="clear-all-btn" onclick="app.clearFilters()">Clear All</button>
+          </div>
+
+          <!-- Category filter -->
+          <div class="filter-section">
+            <div class="filter-title">Category <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="filter-options" id="filter-category-options">
+              <label class="checkbox-label">
+                <input type="checkbox" value="makeup" onchange="app.handleFilterChange('category', 'makeup')"> Makeup
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" value="skin" onchange="app.handleFilterChange('category', 'skin')"> Skin Care
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" value="hair" onchange="app.handleFilterChange('category', 'hair')"> Hair Care
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" value="fragrance" onchange="app.handleFilterChange('category', 'fragrance')"> Fragrance
+              </label>
+            </div>
+          </div>
+
+          <!-- Brand filter -->
+          <div class="filter-section">
+            <div class="filter-title">Brand <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="filter-options" id="filter-brand-options">
+              <!-- Rendered via JS based on actual brands -->
+            </div>
+          </div>
+
+          <!-- Price filter -->
+          <div class="filter-section">
+            <div class="filter-title">Price <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="filter-options">
+              <label class="checkbox-label">
+                <input type="checkbox" value="0-500" onchange="app.handleFilterChange('price', '0-500')"> Under ₹500
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" value="500-1500" onchange="app.handleFilterChange('price', '500-1500')"> ₹500 - ₹1500
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" value="1500-3000" onchange="app.handleFilterChange('price', '1500-3000')"> ₹1500 - ₹3000
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" value="3000-above" onchange="app.handleFilterChange('price', '3000-above')"> ₹3000 & Above
+              </label>
+            </div>
+          </div>
+
+          <!-- Rating filter -->
+          <div class="filter-section">
+            <div class="filter-title">Customer Ratings <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="filter-options">
+              <label class="checkbox-label">
+                <input type="checkbox" value="4.5" onchange="app.handleFilterChange('rating', '4.5')"> 4.5 ★ & above
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" value="4.0" onchange="app.handleFilterChange('rating', '4.0')"> 4.0 ★ & above
+              </label>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Product Area -->
+        <div class="plp-content">
+          <div class="plp-content-header">
+            <div class="results-count" id="results-count">Showing 0 products</div>
+            <div class="sort-select-wrapper">
+              <span>Sort By:</span>
+              <select class="sort-select" id="sort-select" onchange="app.handleSortChange(this.value)">
+                <option value="popularity">Popularity</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Customer Rating</option>
+                <option value="discount">Discount</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="plp-grid" id="plp-grid">
+            <!-- Product Cards dynamic insertion -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. PRODUCT DETAIL (PDP) VIEW -->
+    <section id="product-view" class="view-section">
+      <div class="container pdp-container" id="pdp-container">
+        <!-- Rendered via JS based on selected product -->
+      </div>
+    </section>
+
+    <!-- 4. WISHLIST VIEW -->
+    <section id="wishlist-view" class="view-section">
+      <div class="container wishlist-container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h3>My Wishlist</h3>
+            <p>Your saved favorites</p>
+          </div>
+        </div>
+        
+        <div id="wishlist-content">
+          <!-- Rendered via JS: dynamic grid or empty state -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CART SIDEBAR DRAWER -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay">
+    <div class="cart-drawer">
+      <div class="cart-drawer-header">
+        <div class="cart-drawer-title">
+          <i class="fa-solid fa-bag-shopping text-pink"></i>
+          <span>Shopping Bag (<span id="cart-items-count">0</span>)</span>
+        </div>
+        <button class="cart-drawer-close" id="cart-drawer-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <!-- Items List -->
+      <div class="cart-items-container" id="cart-items-container">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Coupon Discount Code -->
+      <div class="cart-coupon-section">
+        <div class="coupon-input-wrapper">
+          <input type="text" id="coupon-code-input" placeholder="Enter Coupon Code (e.g. NYKAA20)">
+          <button class="apply-coupon-btn" onclick="app.applyCouponCode()">Apply</button>
+        </div>
+        <div id="coupon-message" class="coupon-message"></div>
+      </div>
+
+      <!-- Price Totals Footer -->
+      <div class="cart-drawer-footer">
+        <div class="cart-summary-row">
+          <span>Bag Subtotal</span>
+          <span id="cart-subtotal">₹0</span>
+        </div>
+        <div class="cart-summary-row" id="cart-coupon-row" style="display: none; color: #00824b;">
+          <span>Coupon Discount (<span id="cart-coupon-name"></span>)</span>
+          <span id="cart-coupon-discount">-₹0</span>
+        </div>
+        <div class="cart-summary-row">
+          <span>Shipping Charges</span>
+          <span id="cart-shipping">Free</span>
+        </div>
+        <div class="cart-summary-row total">
+          <span>Grand Total</span>
+          <span id="cart-grand-total">₹0</span>
+        </div>
+        <button class="checkout-btn" onclick="app.handleCheckoutTrigger()">Proceed To Checkout <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MY ORDERS MODAL -->
+  <div class="modal-overlay" id="orders-modal-overlay">
+    <div class="modal-content orders-modal">
+      <button class="modal-close" onclick="app.closeOrdersModal()"><i class="fa-solid fa-xmark"></i></button>
+      <div class="auth-header">
+        <h3>My Orders</h3>
+        <p>Your completed order history</p>
+      </div>
+      <div class="orders-list" id="orders-list"></div>
+    </div>
+  </div>
+
+  <!-- AUTHENTICATION / SIGN IN MODAL -->
+  <div class="modal-overlay" id="auth-modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="app.closeAuthModal()"><i class="fa-solid fa-xmark"></i></button>
+      
+      <!-- Screen 1: Login -->
+      <div id="auth-step-login" class="auth-step">
+        <div class="auth-header">
+          <h3>Welcome to Nykaa</h3>
+          <p>Login to manage your orders, wishlist and cart</p>
+        </div>
+        <div class="auth-form-group">
+          <label for="login-email-phone">Email Address / Mobile Number</label>
+          <input type="text" id="login-email-phone" placeholder="Enter Email or 10-digit Phone Number" required>
+        </div>
+        <div class="auth-form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" placeholder="Enter Password" required>
+        </div>
+        <button class="auth-btn" onclick="app.handleLoginSubmit()">Login</button>
+        <div class="auth-footer-link">
+          Don't have an account? <span onclick="app.switchAuthScreen('signup')">Sign Up</span>
+        </div>
+      </div>
+
+      <!-- Screen 2: Sign Up -->
+      <div id="auth-step-signup" class="auth-step" style="display: none;">
+        <div class="auth-header">
+          <h3>Create an Account</h3>
+          <p>Sign up to start your glow ritual</p>
+        </div>
+        <div class="auth-form-group">
+          <label for="signup-name">Full Name</label>
+          <input name="name" type="text" id="signup-name" placeholder="Enter Full Name" required>
+        </div>
+        <div class="auth-form-group">
+          <label for="signup-phone">Mobile Number</label>
+          <input name="phone" type="text" id="signup-phone" placeholder="Enter 10-digit Phone Number" required>
+        </div>
+        <div class="auth-form-group">
+          <label for="signup-email">Email Address</label>
+          <input name="mail" type="email" id="signup-email" placeholder="Enter Email Address" required>
+        </div>
+        <div class="auth-form-group">
+          <label for="signup-password">Password</label>
+          <input name="password" type="password" id="signup-password" placeholder="Enter Password" required>
+        </div>
+        <button class="auth-btn" onclick="app.handleSignupSubmit()">Register & Login</button>
+        <div class="auth-footer-link">
+          Already have an account? <span onclick="app.switchAuthScreen('login')">Login</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="modal-overlay" id="checkout-modal-overlay">
+    <div class="modal-content checkout-modal">
+      <button class="modal-close" onclick="app.closeCheckoutModal()"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="checkout-steps">
+        <div class="step-indicator active" id="step-ind-1">
+          <div class="step-circle">1</div>
+          <span>Address</span>
+        </div>
+        <div class="step-indicator" id="step-ind-2">
+          <div class="step-circle">2</div>
+          <span>Payment</span>
+        </div>
+        <div class="step-indicator" id="step-ind-3">
+          <div class="step-circle">3</div>
+          <span>Confirmation</span>
+        </div>
+      </div>
+
+      <!-- Step 1 Form: Shipping Address -->
+      <div class="checkout-step-content active" id="checkout-step-1">
+        <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 20px;">Shipping Details</h4>
+        <div class="review-form">
+          <input type="text" id="chk-name" placeholder="Full Name *" required>
+          <input type="text" id="chk-address" placeholder="Flat / House No. / Street *" required>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <input type="text" id="chk-pincode" placeholder="Pincode *" required>
+            <input type="text" id="chk-city" placeholder="City *" required>
+          </div>
+          <input type="tel" id="chk-phone" placeholder="10-digit Phone Number *" required>
+          <button class="checkout-btn" onclick="app.handleAddressSubmit()" style="margin-top: 10px;">Proceed To Payment</button>
+        </div>
+      </div>
+
+      <!-- Step 2 Form: Payment Options -->
+      <div class="checkout-step-content" id="checkout-step-2">
+        <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 20px;">Select Payment Method</h4>
+        
+        <div class="payment-options-list">
+          <div class="payment-option-card active" onclick="app.selectPaymentOption('card')">
+            <input type="radio" name="payment-method" id="pay-card" checked>
+            <div class="payment-option-details">
+              <i class="fa-solid fa-credit-card text-pink"></i>
+              <span>Credit / Debit Card</span>
+            </div>
+          </div>
+          <div class="credit-card-fields" style="display: grid;">
+            <input type="text" placeholder="Card Number" style="grid-column: 1 / -1;">
+            <input type="text" placeholder="MM/YY">
+            <input type="password" placeholder="CVV">
+          </div>
+
+          <div class="payment-option-card" onclick="app.selectPaymentOption('upi')">
+            <input type="radio" name="payment-method" id="pay-upi">
+            <div class="payment-option-details">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+              <span>UPI (Google Pay / PhonePe)</span>
+            </div>
+          </div>
+          
+          <div class="payment-option-card" onclick="app.selectPaymentOption('cod')">
+            <input type="radio" name="payment-method" id="pay-cod">
+            <div class="payment-option-details">
+              <i class="fa-solid fa-hand-holding-dollar"></i>
+              <span>Cash on Delivery (COD)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="checkout-summary-box">
+          <div class="cart-summary-row" style="margin-bottom: 4px;">
+            <span>Grand Total:</span>
+            <strong id="chk-grand-total" class="text-pink">₹0</strong>
+          </div>
+          <div class="cart-summary-row" style="font-size: 11px; margin-bottom: 0;">
+            <span>Delivery to:</span>
+            <span id="chk-delivery-addr-preview" style="text-align: right; max-width: 180px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></span>
+          </div>
+        </div>
+
+        <button class="checkout-btn" onclick="app.handlePaymentSubmit()">Pay & Place Order</button>
+      </div>
+
+      <!-- Step 3 View: Order Placed Success -->
+      <div class="checkout-step-content" id="checkout-step-3">
+        <div class="success-screen">
+          <div class="success-icon-wrap">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <h3>Order Placed Successfully!</h3>
+          <p>Thank you for shopping with Nykaa. Your order <strong class="text-pink" id="chk-order-id">NYK-129481</strong> is placed and will arrive by <strong>2-3 working days</strong>.</p>
+          
+          <div class="checkout-summary-box" style="text-align: left; padding: 20px;">
+            <h5 style="font-size: 14px; font-weight: 700; margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">Order Summary</h5>
+            <div id="chk-success-items-list" style="display: flex; flex-direction: column; gap: 10px; max-height: 180px; overflow-y: auto;">
+              <!-- Items list rendered here -->
+            </div>
+          </div>
+
+          <button class="checkout-btn" onclick="app.closeCheckoutModal(); app.navigateTo('home');">Continue Shopping</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-top">
+      <div class="footer-col footer-about">
+        <div class="logo-container" style="filter: brightness(0) invert(1); margin-bottom: 20px;">
+          <svg viewBox="0 0 512 250" style="height: 28px; width: auto;">
+            <path d="M157.9 57.2c5-9.6-11.2-6.9-11.2-6.9-5.8 0-8.4 7-9.6 9l-17.5 34.5c-3.3 5.7-14.2 30.1-17.8 35.5-.3-5.5.1-16.5.2-19.1.7-10.4 1.4-18.3 2.5-27.8.8-7.4 2.4-15.7.9-23.1-1-4.6-2.5-4.9-9.1-5.6-6.9-.7-11.6 9.3-13.9 14-8.4 17.4-17.8 34.4-25.3 52.2-2.2 5.2-4.9 10.4-7.2 15.5-2.7 6.2-5.2 12.3-8.1 18.4-3.1 6.4-12.8 27.4-15.5 34-3 7.2-3.6 13 8.4 12.7 1.9 0 6.1.4 11.3-5.2 4.1-4.4 4.9-8.5 7.3-14.6 8.6-21.6 14.7-35.9 24.1-57.3.9-2.1 3-8.2 5.1-12.9-.1 6.7-1.2 14.7-1.7 20-1.6 19.4-2.7 38.1-4.4 57.3-.2 2.6-.9 5.7.3 8.1 1.2 2.4 4.2 3 6.6 3.3 9.6 1.2 10.6-3.6 13.6-10.2 2.7-5.9 4.3-10.7 6.7-16.7 7.4-18.5 15.2-36.8 23.8-54.8 2.2-4.6 4.4-9.1 6.8-13.6 4.4-8.3 8-16.1 12.8-25.3 3.6-6.6 7.1-14.1 10.9-21.4zm329.5 52.1c-1.1-11.1-16.3-5.5-25.4-3.8-3.4.6-13.9 2.6-26 4.9-.5-12.5-.3-10-.4-17.6-.3-11-.9-19.6-1.5-29.3-.4-6.1-1.3-14.6-12.3-13-12.8 1.8-14.9 8.2-18.3 15.9-8.9 20.1-8.6 20.2-18.7 42.6-.8 1.7-4.5 10.7-5.1 12.5-.4.1-1.2.3-2.2.6-4.1.9-9.1 2-14.6 3.2l.1-.5c1.3-10.2 2.9-20.4 4.3-30.6 1.3-9.3 2.7-24.5 3.8-33.8 1.2-10-10.4-9.8-10.4-9.8-7.1-.4-9.8 1.7-14.3 7.5-7.7 10-17 20.8-25.2 31.8-14.9 19.9-25.8 34.9-39.3 54.9-3.9 5.8-9.9 14.6-15.1 21.5-3.5-6.9-6.5-14.5-9.4-21.5-4.2-10-7.3-16.2-9.3-22.8-1.8-5.8.4-6.6 4.7-9.9 12.4-9.4 26.4-15.9 39.1-24.9 9-6.4 19.8-13.5 28.6-20.1 0 0 5.1-3 7.9-6.8 3.5-4.8-6.4-9.8-6.4-9.8-5.6-.9-8.7.4-12.6 2.2-4 1.8-9.2 5.9-12.6 8.6-7.5 5.8-17 12.7-24.4 18.5-9.1 7.1-15.3 11.5-25.3 17.4l25.4-38c8.3-10.7-13.7-13.7-22.1-2.4-7.8 10.1-13.1 19-19.2 28.2-14.7 21.9-26.8 44.9-38.9 69-4.6 9.2-9.1 18.8-13.3 28.3-2 4.6-7.9 15.2.2 16.3 17.3 2.2 20.1-6 24-15.9 6.4-16.3 8.5-19.3 12.6-29.4 4-9.8 6.9-15.4 11.4-23.8.1-.1 1.4-2.2 1.4-2.2.8 1.7 6.1 19.3 6.8 21.3 3.6 9.5 9.9 31.7 13.5 41.8 2.6 8.4 3.3 10.8 14.6 10.5 5.6-.1 8-2.3 11.7-9.3s19.7-36.8 19.7-36.8c4.8-.8 11.7-2 16.2-2.8.8-.1 2.6-.5 5.1-1 1.7-.2 3.1-.5 4.2-.8.1 0 .1 0 .2-.1 4.4-.9 10-2 16.1-3.2-1.1 5.5-4.5 17.6-5.2 20.7 0 0-7.4 28.8 2.2 30.3 6 .9 9.1-.1 9.1-.1 11.2-1.3 11.4-16.4 11.4-16.4l6.1-39.1c4.4-.9 8.8-1.8 13.1-2.6l-13.2 44.6c-1.9 6.3-3.3 14.4 8 14.4 9.2.5 9.8-5.3 9.8-5.3.2-.9 7.5-24.4 9.3-32.8 1.2-5.4 5.5-19.3 7.2-24.9 4.8-.9 8.4-1.6 10.1-1.9 2-.3 5.9-1 11-1.8-.1 5.2 0 12.4.1 13.4 1.1 15.8-.1 32.2 3.2 47.7.5 2.5 1.5 5.7 4.7 5.7 3.8 0 5-.4 9-.7 11.6-1 9.5-12.7 8.8-20.1-.8-8.2-1.6-15.1-2.7-23.3-.9-6.7-1.5-15.5-1.6-26.1v-.2c19-3.2 39.5-6.7 42.5-7.2 4.8-1.3 8.8-.9 7.8-11.9zm-148.5 21c0 .1-.1.1-.1.2-13.3 2.9-25.8 5.7-32.8 7.3 7-11.7 37.8-54.3 42.5-59.3-2.6 13.2-6.8 37.7-9.6 51.8zm76.8-16.8v.7c-6.4 1.2-12.4 2.4-17.2 3.3 6.1-15.8 12.5-35.2 16.3-45-.3 7.3 1.2 33.8.9 41zM229.2 66.4c2-3.7 6.5-11 .9-13.8-3.3-1.6-7.7-2.6-11.1-.9-2.8 1.5-4.9 4.4-6.3 7.1l-21.4 33.7c-3.5 4.8-6.8 10.8-13.9 11.6-4.7.5-8.1-1.5-8-5.7.1-4.3 2.6-10 4.5-13.7 5.6-10.6 6.3-14.2 11.7-24.7 5.2-10.1-11.8-12.4-16-5.1-3 5.2-8.8 15-10.1 18.3-2.4 6-20.4 34.6-12.6 45.9 10 12.8 36.6-7.4 23 15.9-11 18.7-17.9 29.4-27.5 46.7-2.1 3.7-4.7 7.4-5.4 11.8-1 6.2 7.5 6.1 11.2 5.9 6.5-.5 9.6-3.5 12.2-9.4 1.4-3.1 3.3-6.9 4.7-10 12.6-27.5 26-51.4 42.6-78 7.9-12.6 14.9-23.4 21.5-35.6z" fill="#fc2779"></path>
+          </svg>
+        </div>
+        <p>Your one-stop destination for makeup, skin formulations, hair care rituals, and luxury fragrances. Explore curated catalogs and purchase with ease.</p>
+        <div class="footer-socials" style="margin-top: 20px;">
+          <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Beauty Categories</h4>
+        <ul>
+          <li><a href="#" onclick="app.navigateTo('shop', { category: 'makeup' }); return false;">Makeup</a></li>
+          <li><a href="#" onclick="app.navigateTo('shop', { category: 'skin' }); return false;">Skin Care</a></li>
+          <li><a href="#" onclick="app.navigateTo('shop', { category: 'hair' }); return false;">Hair Care</a></li>
+          <li><a href="#" onclick="app.navigateTo('shop', { category: 'fragrance' }); return false;">Fragrances</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#" onclick="app.navigateTo('home'); return false;">Home Store</a></li>
+          <li><a href="#" onclick="app.navigateTo('shop'); return false;">All Products</a></li>
+          <li><a href="#" onclick="app.navigateTo('wishlist'); return false;">My Wishlist</a></li>
+          <li><a href="#" onclick="app.showCartDrawer(); return false;">Shopping Bag</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help & Support</h4>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&copy; 2026 Nykaa E-Retail Limited. All Rights Reserved. (Clone for demonstration)</span>
+      <span>Made with <i class="fa-solid fa-heart text-pink"></i> for Antigravity pair programming</span>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script src="/static/products.js"></script>
+  <script src="/static/app.js?v=5"></script>
+</body>
+</html>
