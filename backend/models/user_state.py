@@ -1,6 +1,6 @@
 from sqlalchemy import Column, ForeignKey, Integer, Text, UniqueConstraint
 
-from db.base import Base
+from backend.db.base import Base
 
 
 class UserState(Base):
