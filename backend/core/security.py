@@ -2,7 +2,7 @@ from datetime import datetime,timedelta,timezone
 import jwt
 
 from pwdlib import PasswordHash
-from core.config import SECRET_KEY,ALGORITHM
+from backend.core.config import SECRET_KEY,ALGORITHM
 
 
 password_hash = PasswordHash.recommended()
