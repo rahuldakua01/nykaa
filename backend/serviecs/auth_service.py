@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
-from models.user import User
-from core.security import verify_password,get_hash_password,create_access_token
+from backend.models.user import User
+from backend.core.security import verify_password,get_hash_password,create_access_token
 from fastapi import HTTPException
-from core.config import ACCESS_TOKEN_EXPIRE_MINUTES
+from backend.core.config import ACCESS_TOKEN_EXPIRE_MINUTES
 from datetime import timedelta
 
 
