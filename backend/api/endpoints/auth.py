@@ -4,17 +4,17 @@ import jwt
 from jwt import InvalidTokenError
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 
-from schemas.user import Register,Login,Token,UserStateData,OrderCreate,OrderOut
-from serviecs.auth_service import register_user,login_user,user_delete
+from backend.schemas.user import Register,Login,Token,UserStateData,OrderCreate,OrderOut
+from backend.serviecs.auth_service import register_user,login_user,user_delete
 from fastapi.routing import APIRouter
 from fastapi import Depends,Form,HTTPException
-from core.config import SECRET_KEY,ALGORITHM
-from core.dependencies import get_db
+from backend.core.config import SECRET_KEY,ALGORITHM
+from backend.core.dependencies import get_db
 from sqlalchemy.orm import Session
 from pydantic import EmailStr
-from models.user import User
-from models.user_state import UserState
-from models.order import Order
+from backend.models.user import User
+from backend.models.user_state import UserState
+from backend.models.order import Order
 
 
 router = APIRouter()
