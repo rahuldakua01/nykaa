@@ -2,7 +2,7 @@ from datetime import datetime
 
 from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, Text
 
-from db.base import Base
+from backend.db.base import Base
 
 
 class Order(Base):
